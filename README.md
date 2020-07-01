@@ -7,7 +7,6 @@ This repo contains my personal website with a few features:
 - Vuex
 - Vuetify
 - SASS
-- Vuese
 - Router
 ```
 
