@@ -1,7 +1,5 @@
 <template>
   <v-app>
-    
-    
     <!-- <v-parallax src="https://cdn.vuetifyjs.com/images/parallax/material.jpg"></v-parallax> -->
      <v-parallax
     dark
@@ -18,10 +16,10 @@
       </v-col>
     </v-row>
   </v-parallax>
-
+  <Menu />
 
     <v-app-bar
-      app
+      absolute
       color="primary"
       dark
     >
@@ -67,12 +65,14 @@
 
 <script>
 // import HelloWorld from './components/HelloWorld';
+import Menu from './components/Menu';
 
 export default {
   name: 'App',
 
   components: {
     // HelloWorld,
+    Menu
   },
 
   data: () => ({
