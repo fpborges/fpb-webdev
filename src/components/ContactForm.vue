@@ -10,7 +10,7 @@
           md="4"
         >
           <v-text-field
-            v-model="firstname"
+            v-model="form.firstname"
             name="firstname"
             type="text"
             :rules="nameRules"
@@ -25,7 +25,7 @@
           md="4"
         >
           <v-text-field
-            v-model="lastname"
+            v-model="form.lastname"
             name="lastname"
             type="text"
             :rules="nameRules"
@@ -40,7 +40,7 @@
           md="4"
         >
           <v-text-field
-            v-model="email"
+            v-model="form.email"
             name="email"
             type="email"
             :rules="emailRules"
@@ -53,7 +53,7 @@
           md="4"
         >
           <v-textarea
-            v-model="message"
+            v-model="form.message"
             name="message"
             type="text"
             :rules="messageRules"
@@ -81,9 +81,12 @@
     name: "QAForm",
     data: () => ({
       valid: false,
-      firstname: '',
-      lastname: '',
-      message:'',
+      form:{
+        firstname: '',
+        lastname: '',
+        email: '',
+        message:'',
+      },
       messageRules: [
         v => !!v || 'Message is required',
         v => v.length >= 10 || 'Message must have more than 10 characters',
@@ -92,7 +95,6 @@
         v => !!v || 'Name is required',
         v => v.length <= 10 || 'Name must be less than 10 characters',
       ],
-      email: '',
       emailRules: [
         v => !!v || 'E-mail is required',
         v => /.+@.+/.test(v) || 'E-mail must be valid',
