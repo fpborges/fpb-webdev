@@ -12,6 +12,7 @@
           <v-text-field
             v-model="firstname"
             name="firstname"
+            type="text"
             :rules="nameRules"
             :counter="10"
             label="First name"
@@ -26,6 +27,7 @@
           <v-text-field
             v-model="lastname"
             name="lastname"
+            type="text"
             :rules="nameRules"
             :counter="10"
             label="Last name"
@@ -40,6 +42,7 @@
           <v-text-field
             v-model="email"
             name="email"
+            type="email"
             :rules="emailRules"
             label="E-mail"
             required
@@ -52,6 +55,7 @@
           <v-textarea
             v-model="message"
             name="message"
+            type="text"
             :rules="messageRules"
             label="Message"
             required
