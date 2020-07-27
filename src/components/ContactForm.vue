@@ -70,7 +70,11 @@
       >
         Submit
       </v-btn>
- 
+      <v-row >
+        
+         <h1>{{ callbackText }}</h1>
+        
+      </v-row>
     </v-container>
   </v-form>
 </template>
@@ -81,6 +85,7 @@
     name: "QAForm",
     data: () => ({
       valid: false,
+      callbackText: "",
       form:{
         firstname: '',
         lastname: '',
@@ -120,12 +125,20 @@
         }),
         axiosConfig
       ).then(() => {
-        this.$router.push('thanks')
+        // this.$router.push('thanks')
+        this.callbackText = "You're Awesome! Thank you for your submission!"
       })
       .catch(() => {
-        this.$router.push('404')
+        // this.$router.push('404')
+        this.callbackText = "Oops, looks like something went wrong!"
         })
+
       }
     }
   }
 </script>
+
+//onSubmit() {
+// 		this.form.post('/projects')
+// 			.then(response => alert('Wahoo!'));
+// 	}
