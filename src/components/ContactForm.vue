@@ -72,6 +72,7 @@
 </template>
 
 <script>
+import axios from "axios";
   export default {
     name: "QAForm",
     data: () => ({
@@ -93,25 +94,28 @@
         v => /.+@.+/.test(v) || 'E-mail must be valid',
       ],
     }),
-    methods:{
-        encode(data){
-            return Object.keys(data).map(key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`).join('&')
-        },
-        handleSubmit() {
-            fetch('/', {
-                method: 'post',
-                headers:{
-                    'Content-Type': 'application/x-www-urlencoded'
-                },
-                body: this.encode({
-                    'form-name': 'contact',
-                    ...this.form
-                })
-            })
-            .then(() => console.log('success'))
-            .catch(e => console.error(e))
-        }
+    methods: {
+    encode (data) {
+      return Object.keys(data)
+        .map(
+          key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`
+        )
+        .join("&");
+    },
+    handleSubmit () {
+      const axiosConfig = {
+        header: { "Content-Type": "application/x-www-form-urlencoded" }
+      };
+      axios.post(
+        "/",
+        this.encode({
+          "form-name": "ask-question",
+          ...this.form
+        }),
+        axiosConfig
+      );
     }
+  }
   }
 </script>
 
