@@ -72,7 +72,7 @@
 </template>
 
 <script>
-import axios from "axios";
+  import axios from "axios";
   export default {
     name: "QAForm",
     data: () => ({
@@ -95,21 +95,21 @@ import axios from "axios";
       ],
     }),
     methods: {
-    encode (data) {
+    encode(data) {
       return Object.keys(data)
         .map(
           key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`
         )
         .join("&");
     },
-    handleSubmit () {
+    handleSubmit() {
       const axiosConfig = {
         header: { "Content-Type": "application/x-www-form-urlencoded" }
       };
       axios.post(
         "/",
         this.encode({
-          "form-name": "ask-question",
+          "form-name": "contact",
           ...this.form
         }),
         axiosConfig
