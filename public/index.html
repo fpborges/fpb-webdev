@@ -15,5 +15,25 @@
     </noscript>
     <div id="app"></div>
     <!-- built files will be auto injected -->
+    <form name="contact" method="POST" netfly-honeypot="bot-field" data-netlify="true" hidden>
+      <p class="hidden">
+        <label>Are you Human? <input name="bot-field" /></label>   
+      </p>
+      <p>
+        <label>First Nmae: <input type="text" name="firstname" /></label>   
+      </p>
+      <p>
+        <label>Last Nmae: <input type="text" name="lastname" /></label>   
+      </p>
+      <p>
+        <label>Your Email: <input type="email" name="email" /></label>
+      </p>
+      <p>
+        <label>Message: <textarea name="message"></textarea></label>
+      </p>
+      <p>
+        <button type="submit">Send</button>
+      </p>
+    </form>
   </body>
 </html>
