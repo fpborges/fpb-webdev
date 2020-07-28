@@ -124,15 +124,10 @@
         }),
         axiosConfig
       ).then(() => {
-        // this.$router.push('thanks')
-        // alert("Thank you for your submission")
-        self.formCallBack = 'Data is entered'
-        
+        this.$router.push('thanks')        
       })
       .catch(() => {
-        // this.$router.push('404')
-        // alert("Sorry for the incovenience")
-        self.formCallBack = "Failed!" 
+        this.$router.push('404')
         })
       }
     }

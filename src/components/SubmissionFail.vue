@@ -1,10 +1,14 @@
 <template>
-  <div>
-    <h1>Oops, looks like something went wrong!</h1>
+  <v-container>
+     <v-alert type="error">
+       <h1>Oops, looks like something went wrong!</h1>
+    </v-alert>
     <router-link to="/">
-      <button>Back to form</button>
+      <div class="my-2">
+        <v-btn color="primary" dark large>Back To Page</v-btn>
+      </div>
     </router-link>
-  </div>
+  </v-container>
 </template>
 
 <script>
