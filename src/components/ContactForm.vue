@@ -71,7 +71,44 @@
         Submit
       </v-btn>
       <v-row>
-        {{ formCallBack }}
+
+        <v-dialog
+      v-model="dialog"
+      max-width="290"
+    >
+      <v-card>
+      
+        <v-card-text>
+           <v-alert type="success" v-model= "alertSuccess">
+            I'm a success alert.
+            </v-alert>
+            <v-alert type="error" v-model= "alertError">
+            I'm an error alert.
+        </v-alert> 
+        </v-card-text>
+
+        <v-card-actions>
+          <v-spacer></v-spacer>
+
+          <v-btn
+            color="green darken-1"
+            
+            text
+            @click="dialog = false, reloadPage()"
+          >
+            OK
+          </v-btn>
+
+          <v-btn
+            color="green darken-1"
+            text
+            @click="dialog = false"
+          >
+            Agree
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
       </v-row>
     </v-container>
   </v-form>
@@ -84,6 +121,9 @@
     data: () => ({
       valid: false,
       formCallBack: '',
+      alertError: false,
+      alertSuccess: false,
+      dialog: false,
       savingSuccessful: false,
       form:{
         firstname: '',
@@ -112,6 +152,9 @@
         )
         .join("&");
     },
+    reloadPage(){
+    window.location.reload()
+    },
     handleSubmit() {
       const axiosConfig = {
         header: { "Content-Type": "application/x-www-form-urlencoded" }
@@ -124,17 +167,20 @@
         }),
         axiosConfig
       ).then(() => {
-        this.$router.push('thanks')        
+        this.$router.push('thanks')
+        this.alertSuccess= true;
+        
       })
       .catch(() => {
-        this.$router.push('404')
+        // alert("Error!!");
+        // this.form.reset();
+        this.alertError= true;
+        this.dialog= true;
+   
+        // this.$router.go('/');
         })
       }
     }
   }
 </script>
 
-//onSubmit() {
-// 		this.form.post('/projects')
-// 			.then(response => alert('Wahoo!'));
-// 	}
